@@ -629,9 +629,10 @@ h1 {
 
 .service-media img {
   width: 100%;
-  aspect-ratio: 45 / 26;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border: 1px solid color-mix(in srgb, var(--sepia) 42%, transparent 58%);
+  background: color-mix(in srgb, var(--bg) 94%, white 6%);
 }
 
 .service-body {
