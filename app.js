@@ -120,40 +120,24 @@
   const cursor = document.querySelector('.compass-cursor');
   const cursorNeedle = document.querySelector('.cursor-needle');
   const interactiveTargets = 'a, button, input, textarea, .service-card, .research-stop, .map-panel';
-  const allowCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const hasFinePointer = window.matchMedia('(any-pointer: fine)').matches;
+  const coarseOnly = window.matchMedia('(any-pointer: coarse)').matches && !hasFinePointer;
+  const allowCursor = !coarseOnly;
 
   if (cursor && cursorNeedle && allowCursor && !prefersReducedMotion) {
     body.classList.add('cursor-enabled');
 
-    let targetX = window.innerWidth / 2;
-    let targetY = window.innerHeight / 2;
-    let renderX = targetX;
-    let renderY = targetY;
-    let prevX = targetX;
-    let prevY = targetY;
+    let prevX = window.innerWidth / 2;
+    let prevY = window.innerHeight / 2;
     let lastAngle = 0;
-    let frame = 0;
-
-    const renderCursor = () => {
-      renderX += (targetX - renderX) * 0.22;
-      renderY += (targetY - renderY) * 0.22;
-      cursor.style.left = `${renderX.toFixed(1)}px`;
-      cursor.style.top = `${renderY.toFixed(1)}px`;
-
-      if (Math.abs(targetX - renderX) > 0.1 || Math.abs(targetY - renderY) > 0.1) {
-        frame = window.requestAnimationFrame(renderCursor);
-      } else {
-        frame = 0;
-      }
+    const setCursorPosition = (x, y) => {
+      cursor.style.left = `${x.toFixed(1)}px`;
+      cursor.style.top = `${y.toFixed(1)}px`;
     };
 
     const onPointerMove = (event) => {
-      targetX = event.clientX;
-      targetY = event.clientY;
       cursor.classList.add('active');
-      if (!frame) {
-        frame = window.requestAnimationFrame(renderCursor);
-      }
+      setCursorPosition(event.clientX, event.clientY);
 
       const dx = event.clientX - prevX;
       const dy = event.clientY - prevY;
@@ -173,7 +157,10 @@
       }
     };
 
+    setCursorPosition(prevX, prevY);
     window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('pointerenter', () => cursor.classList.add('active'));
+    window.addEventListener('pointerleave', () => cursor.classList.remove('active'));
     window.addEventListener('pointerdown', () => cursor.classList.add('interact'));
     window.addEventListener('pointerup', () => cursor.classList.remove('interact'));
     window.addEventListener('blur', () => cursor.classList.remove('active'));
