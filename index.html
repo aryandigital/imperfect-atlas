@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Imperfect Atlas | Kanishk Gupta</title>
+  <meta name="description" content="Kanishk Gupta, Narrative Intelligence Consultant. Consulting, workshops, and The Imperfect Atlas newsletter." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23F4EED1' stroke='%231A2A3A' stroke-width='6'/%3E%3Cpath d='M60 20v20M60 80v20M20 60h20M80 60h20M42 78l10-30 26-12-10 30z' fill='none' stroke='%23704214' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top">The Imperfect Atlas</a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+      <ul class="nav-links">
+        <li><a href="#consulting">Consulting</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-map" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Narrative Intelligence</p>
+            <h1>Navigate the Narrative. Decode the Story.</h1>
+            <p class="subhead">Kanishk Gupta | Narrative Intelligence Consultant</p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="#consulting">Book Consulting</a>
+              <a class="btn btn-secondary" href="#newsletter">Read The Imperfect Atlas</a>
+            </div>
+          </div>
+          <figure class="hero-visual">
+            <img
+              src="./assets/hero-nautical-map.svg"
+              alt="A vintage nautical chart with route lines and a compass rose."
+              width="1200"
+              height="820"
+              fetchpriority="high"
+            />
+            <figcaption>Narrative routes from noise to signal.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-bar" aria-label="Social proof">
+      <div class="container">
+        <p>Trusted by a network of 5,000+ narrative explorers.</p>
+      </div>
+    </section>
+
+    <section class="services container" id="services">
+      <article class="service-card" id="consulting">
+        <img
+          class="service-image"
+          src="./assets/consulting-map.svg"
+          alt="Vintage strategy table with map notes and a compass."
+          width="900"
+          height="520"
+          loading="lazy"
+        />
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Compass icon">
+            <circle cx="60" cy="60" r="48" class="icon-stroke" />
+            <circle cx="60" cy="60" r="8" class="icon-fill" />
+            <path class="icon-stroke" d="M60 16v16M60 88v16M16 60h16M88 60h16" />
+            <path class="icon-stroke" d="M39 81l15-42 27-13-15 42z" />
+            <path class="icon-stroke" d="M67 51l-13 30" />
+          </svg>
+        </div>
+        <h2>Consulting</h2>
+        <p>1-on-1 narrative strategy for founders, executives, and communicators who need coherent positioning, stronger message architecture, and sharper story decisions.</p>
+        <a class="text-link" href="#newsletter">Start a consulting conversation</a>
+      </article>
+
+      <article class="service-card" id="workshops">
+        <img
+          class="service-image"
+          src="./assets/workshop-map.svg"
+          alt="Vintage workshop board showing collaborative map routes."
+          width="900"
+          height="520"
+          loading="lazy"
+        />
+        <div class="icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Sextant icon">
+            <path class="icon-stroke" d="M20 88a40 40 0 0 1 80 0" />
+            <path class="icon-stroke" d="M60 48v40M30 88h60" />
+            <circle cx="60" cy="46" r="6" class="icon-stroke" />
+            <path class="icon-stroke" d="M60 46l28 18" />
+            <path class="icon-stroke" d="M41 74l14-9" />
+            <path class="icon-stroke" d="M73 74l14-9" />
+          </svg>
+        </div>
+        <h2>Workshops</h2>
+        <p>Group decoding sessions that help teams identify narrative blind spots, align on strategic storyframes, and build shared language for confident communication.</p>
+        <a class="text-link" href="#newsletter">Bring a workshop to your team</a>
+      </article>
+    </section>
+
+    <section class="newsletter" id="newsletter">
+      <div class="container newsletter-card">
+        <div class="newsletter-layout">
+          <div>
+            <h2>The Imperfect Atlas</h2>
+            <p>Join 5,000+ readers decoding the architecture of modern stories.</p>
+            <form class="newsletter-form" action="#" method="post" novalidate>
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" name="email" type="email" placeholder="Enter your email" autocomplete="email" required />
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+          <img
+            class="newsletter-stamp"
+            src="./assets/atlas-stamp.svg"
+            alt="The Imperfect Atlas maritime seal."
+            width="240"
+            height="240"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="maritime-border" aria-hidden="true"></div>
+    <div class="container footer-content">
+      <p>&copy; <span id="year"></span> Kanishk Gupta. All rights reserved.</p>
+      <ul class="social-links" aria-label="Social links">
+        <li><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
+        <li><a href="https://x.com" target="_blank" rel="noreferrer">X</a></li>
+        <li><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+</body>
+</html>

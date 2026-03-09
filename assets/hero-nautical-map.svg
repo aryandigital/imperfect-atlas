@@ -1,0 +1,59 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Vintage Nautical Chart</title>
+  <desc id="desc">A stylized 1900s style maritime map with routes, compass rose and ship illustration.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F8F1D8"/>
+      <stop offset="1" stop-color="#EEDFB7"/>
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" fill="none" stroke="#704214" stroke-opacity="0.18" stroke-width="1"/>
+    </pattern>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.05"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="820" fill="url(#paper)"/>
+  <rect width="1200" height="820" fill="url(#grid)"/>
+
+  <g fill="none" stroke="#704214" stroke-opacity="0.35" stroke-width="2">
+    <path d="M80 640 C 240 520, 360 650, 500 560 S 760 430, 1120 520"/>
+    <path d="M120 180 C 280 220, 430 120, 600 200 S 930 290, 1090 160"/>
+  </g>
+
+  <g fill="none" stroke="#1A2A3A" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 14" opacity="0.7">
+    <path d="M190 700 C 320 540, 420 520, 540 520 S 760 560, 940 360"/>
+    <path d="M190 700 C 280 660, 350 560, 460 450 S 760 280, 1040 260"/>
+  </g>
+
+  <g transform="translate(150 180)" stroke="#1A2A3A" fill="none" stroke-width="4" opacity="0.85">
+    <circle cx="0" cy="0" r="120"/>
+    <circle cx="0" cy="0" r="84" stroke="#704214" stroke-opacity="0.7"/>
+    <path d="M0 -116V116M-116 0H116" stroke-opacity="0.75"/>
+    <path d="M0 -86 L28 0 L0 86 L-28 0 Z" fill="#C5A059" fill-opacity="0.34"/>
+    <path d="M86 0 L0 -28 L-86 0 L0 28 Z" fill="#1A2A3A" fill-opacity="0.14"/>
+    <circle cx="0" cy="0" r="10" fill="#1A2A3A"/>
+    <text x="-8" y="-136" fill="#1A2A3A" font-family="serif" font-size="28">N</text>
+  </g>
+
+  <g transform="translate(720 500)" fill="none" stroke="#1A2A3A" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M-160 84 H190"/>
+    <path d="M-120 80 L-70 -10 L90 -10 L150 80"/>
+    <path d="M-20 -10 L-20 -168"/>
+    <path d="M-20 -152 L100 -106 L-20 -70"/>
+    <circle cx="-20" cy="-8" r="7" fill="#1A2A3A"/>
+  </g>
+
+  <g fill="#704214" fill-opacity="0.86" font-family="serif" font-size="26">
+    <text x="840" y="94">North Atlantic Story Routes</text>
+    <text x="820" y="128" font-size="20" fill-opacity="0.72">circa 1906</text>
+    <text x="836" y="678" font-size="18" fill-opacity="0.74">Consulting trajectories marked in navy</text>
+  </g>
+
+  <rect width="1200" height="820" filter="url(#grain)" opacity="0.9"/>
+</svg>

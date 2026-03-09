@@ -1,0 +1,51 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-labelledby="title desc">
+  <title id="title">Workshop Decoding Session</title>
+  <desc id="desc">A vintage classroom style briefing map with group marks and route sketches.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F7F0D7"/>
+      <stop offset="1" stop-color="#E9DBB4"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.95" numOctaves="2" stitchTiles="stitch"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 0.06"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="900" height="520" fill="url(#paper)"/>
+  <rect x="90" y="78" width="720" height="318" rx="12" fill="#F4EED1" stroke="#704214" stroke-width="5"/>
+
+  <g stroke="#704214" stroke-width="3" stroke-opacity="0.5" fill="none">
+    <path d="M130 154 C 250 120, 360 186, 490 154 S 710 114, 780 152"/>
+    <path d="M130 236 C 250 206, 360 268, 490 238 S 710 198, 780 236"/>
+    <path d="M130 318 C 250 288, 360 350, 490 320 S 710 280, 780 318"/>
+  </g>
+
+  <g fill="none" stroke="#1A2A3A" stroke-width="4" stroke-linecap="round">
+    <path stroke-dasharray="9 12" d="M170 324 C 260 254, 330 300, 420 236 S 600 190, 720 162"/>
+    <path stroke-dasharray="9 12" d="M174 162 C 260 182, 340 136, 440 154 S 650 220, 738 274"/>
+  </g>
+
+  <g transform="translate(212 232)">
+    <circle cx="0" cy="0" r="46" fill="none" stroke="#1A2A3A" stroke-width="4"/>
+    <path d="M0 -34 L12 0 L0 34 L-12 0 Z" fill="#C5A059" fill-opacity="0.5" stroke="#1A2A3A" stroke-width="3"/>
+    <circle cx="0" cy="0" r="5" fill="#1A2A3A"/>
+  </g>
+
+  <g transform="translate(560 226)">
+    <path d="M0 90a90 90 0 0 1 180 0" fill="none" stroke="#1A2A3A" stroke-width="5"/>
+    <path d="M20 90h140M90 0v90" fill="none" stroke="#1A2A3A" stroke-width="5"/>
+    <circle cx="90" cy="0" r="7" fill="none" stroke="#704214" stroke-width="4"/>
+    <path d="M90 0l66 40" fill="none" stroke="#704214" stroke-width="4"/>
+  </g>
+
+  <g fill="#1A2A3A">
+    <circle cx="198" cy="448" r="18"/>
+    <circle cx="300" cy="448" r="18"/>
+    <circle cx="402" cy="448" r="18"/>
+    <circle cx="504" cy="448" r="18"/>
+    <circle cx="606" cy="448" r="18"/>
+  </g>
+  <text x="88" y="492" fill="#704214" font-family="serif" font-size="26">Collaborative story decoding workshop</text>
+  <rect width="900" height="520" filter="url(#grain)"/>
+</svg>

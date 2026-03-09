@@ -1,0 +1,10 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">The Imperfect Atlas Stamp</title>
+  <desc id="desc">Circular maritime stamp with a ship and compass accents.</desc>
+  <rect width="240" height="240" fill="none"/>
+  <circle cx="120" cy="120" r="100" fill="#F4EED1" stroke="#704214" stroke-width="8"/>
+  <circle cx="120" cy="120" r="74" fill="none" stroke="#1A2A3A" stroke-width="4" stroke-dasharray="5 8"/>
+  <path d="M120 56v18M120 166v18M56 120h18M166 120h18" stroke="#704214" stroke-width="4" stroke-linecap="round"/>
+  <path d="M78 150h86M90 146l16-30h33l16 30M122 116V72M122 76l30 16-30 10" fill="none" stroke="#1A2A3A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="57" y="210" fill="#704214" font-family="serif" font-size="18">THE IMPERFECT ATLAS</text>
+</svg>
