@@ -120,7 +120,7 @@
   const cursor = document.querySelector('.compass-cursor');
   const cursorNeedle = document.querySelector('.cursor-needle');
   const interactiveTargets = 'a, button, input, textarea, .service-card, .research-stop, .map-panel';
-  const allowCursor = window.matchMedia('(pointer: fine)').matches && window.innerWidth > 960;
+  const allowCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   if (cursor && cursorNeedle && allowCursor && !prefersReducedMotion) {
     body.classList.add('cursor-enabled');
@@ -129,12 +129,16 @@
     let targetY = window.innerHeight / 2;
     let renderX = targetX;
     let renderY = targetY;
+    let prevX = targetX;
+    let prevY = targetY;
+    let lastAngle = 0;
     let frame = 0;
 
     const renderCursor = () => {
       renderX += (targetX - renderX) * 0.22;
       renderY += (targetY - renderY) * 0.22;
-      cursor.style.transform = `translate(${renderX.toFixed(1)}px, ${renderY.toFixed(1)}px)`;
+      cursor.style.left = `${renderX.toFixed(1)}px`;
+      cursor.style.top = `${renderY.toFixed(1)}px`;
 
       if (Math.abs(targetX - renderX) > 0.1 || Math.abs(targetY - renderY) > 0.1) {
         frame = window.requestAnimationFrame(renderCursor);
@@ -151,9 +155,17 @@
         frame = window.requestAnimationFrame(renderCursor);
       }
 
-      const angle = Math.atan2(event.movementY || 0, event.movementX || 0) * (180 / Math.PI) + 90;
-      if (Number.isFinite(angle)) {
-        cursorNeedle.style.transform = `translate(-50%, -50%) rotate(${angle.toFixed(2)}deg)`;
+      const dx = event.clientX - prevX;
+      const dy = event.clientY - prevY;
+      prevX = event.clientX;
+      prevY = event.clientY;
+
+      if (Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+        lastAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+      }
+
+      if (Number.isFinite(lastAngle)) {
+        cursorNeedle.style.transform = `translate(-50%, -50%) rotate(${lastAngle.toFixed(2)}deg)`;
       }
 
       if (compassStage && !prefersReducedMotion) {
@@ -164,6 +176,8 @@
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     window.addEventListener('pointerdown', () => cursor.classList.add('interact'));
     window.addEventListener('pointerup', () => cursor.classList.remove('interact'));
+    window.addEventListener('blur', () => cursor.classList.remove('active'));
+    document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
 
     document.querySelectorAll(interactiveTargets).forEach((node) => {
       node.addEventListener('mouseenter', () => cursor.classList.add('interact'));
