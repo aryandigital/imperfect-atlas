@@ -130,14 +130,24 @@
     let prevX = window.innerWidth / 2;
     let prevY = window.innerHeight / 2;
     let lastAngle = 0;
+    let idleTimer = 0;
     const setCursorPosition = (x, y) => {
       cursor.style.left = `${x.toFixed(1)}px`;
       cursor.style.top = `${y.toFixed(1)}px`;
+    };
+    const scheduleCursorHide = () => {
+      if (idleTimer) {
+        window.clearTimeout(idleTimer);
+      }
+      idleTimer = window.setTimeout(() => {
+        cursor.classList.remove('active');
+      }, 900);
     };
 
     const onPointerMove = (event) => {
       cursor.classList.add('active');
       setCursorPosition(event.clientX, event.clientY);
+      scheduleCursorHide();
 
       const dx = event.clientX - prevX;
       const dy = event.clientY - prevY;
@@ -159,12 +169,25 @@
 
     setCursorPosition(prevX, prevY);
     window.addEventListener('pointermove', onPointerMove, { passive: true });
-    window.addEventListener('pointerenter', () => cursor.classList.add('active'));
+    window.addEventListener('pointerenter', () => {
+      cursor.classList.add('active');
+      scheduleCursorHide();
+    });
     window.addEventListener('pointerleave', () => cursor.classList.remove('active'));
     window.addEventListener('pointerdown', () => cursor.classList.add('interact'));
     window.addEventListener('pointerup', () => cursor.classList.remove('interact'));
-    window.addEventListener('blur', () => cursor.classList.remove('active'));
-    document.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+    window.addEventListener('blur', () => {
+      cursor.classList.remove('active');
+      if (idleTimer) {
+        window.clearTimeout(idleTimer);
+      }
+    });
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.remove('active');
+      if (idleTimer) {
+        window.clearTimeout(idleTimer);
+      }
+    });
 
     document.querySelectorAll(interactiveTargets).forEach((node) => {
       node.addEventListener('mouseenter', () => cursor.classList.add('interact'));
